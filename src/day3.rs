@@ -35,10 +35,10 @@ pub fn solve_part_01(input: &[Vec<bool>]) -> usize {
 
 #[aoc(day3, part2)]
 pub fn solve_part_02(input: &[Vec<bool>]) -> usize {
-    let slopes = vec![(1, 1), (1, 3), (1, 5), (1, 7), (2, 1)];
-    slopes
+    [(1, 1), (1, 3), (1, 5), (1, 7), (2, 1)]
         .iter()
-        .fold(1, |acc, s| acc * sum_trees(&input, s.0, s.1))
+        .map(|s| sum_trees(&input, s.0, s.1))
+        .product()
 }
 
 #[cfg(test)]
