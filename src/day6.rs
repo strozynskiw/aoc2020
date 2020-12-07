@@ -22,7 +22,7 @@ pub fn solve_part_02(input: &[String]) -> usize {
                 .split("\n")
                 .map(|s| s.trim())
                 .filter(|s| !s.is_empty())
-                .map(|s|s.to_owned())
+                .map(|s| s.to_owned())
                 .collect();
 
             let letters: Vec<HashSet<char>> = answers
@@ -32,9 +32,10 @@ pub fn solve_part_02(input: &[String]) -> usize {
 
             let mut result: HashSet<char> = letters.get(0).unwrap().clone();
 
-            for set in letters {
-                result = set.intersection(&result).copied().collect();
-            }
+            letters
+                .iter()
+                .skip(1)
+                .for_each(|set| result = result.intersection(&set).copied().collect());
 
             result.len()
         })
