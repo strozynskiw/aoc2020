@@ -2,10 +2,10 @@ use std::collections::HashMap;
 type PassportData = HashMap<String, String>;
 
 #[aoc_generator(day4)]
-pub fn input_generator(input: &str) -> Vec<PassportData> {
+pub fn input_generator(input: &str) -> Vec<String> {
     let raw_data: Vec<String> = input
         .split("\n\n")
-        .map(|s| String::from(s).replace("\n", " "))
+        .map(|s| String::from(s).replace("\n", ""))
         .collect();
 
     raw_data
