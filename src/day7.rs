@@ -73,7 +73,6 @@ fn count_bags(rules: &Rules, color: &str) -> u32 {
 
 #[aoc(day7, part1)]
 pub fn solve_part_01(input: &Rules) -> usize {
-    // -1 to avoid counting the shiny gold as containing shiny gold bag.
     input
         .iter()
         .filter(|r| contains_bag("shiny gold", input, &r.1))
